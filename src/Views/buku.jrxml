@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1965406-66a2-4818-9034-294759594504">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     buku.`id` AS buku_id,
+     buku.`gambar` AS buku_gambar,
+     buku.`judul` AS buku_judul,
+     buku.`noisbn` AS buku_noisbn,
+     buku.`penulis` AS buku_penulis,
+     buku.`penerbit` AS buku_penerbit,
+     buku.`tahun` AS buku_tahun,
+     buku.`stok` AS buku_stok,
+     buku.`harga_pokok` AS buku_harga_pokok,
+     buku.`harga_jual` AS buku_harga_jual,
+     buku.`ppn` AS buku_ppn,
+     buku.`diskon` AS buku_diskon
+FROM
+     `buku` buku]]>
+	</queryString>
+	<field name="buku_id" class="java.lang.Integer"/>
+	<field name="buku_gambar" class="java.lang.String"/>
+	<field name="buku_judul" class="java.lang.String"/>
+	<field name="buku_noisbn" class="java.lang.String"/>
+	<field name="buku_penulis" class="java.lang.String"/>
+	<field name="buku_penerbit" class="java.lang.String"/>
+	<field name="buku_tahun" class="java.sql.Date"/>
+	<field name="buku_stok" class="java.lang.Integer"/>
+	<field name="buku_harga_pokok" class="java.lang.Integer"/>
+	<field name="buku_harga_jual" class="java.lang.Integer"/>
+	<field name="buku_ppn" class="java.lang.Integer"/>
+	<field name="buku_diskon" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="122" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="0" width="269" height="38" uuid="423e14ce-f070-408f-bdff-a038afe0a4ad"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[TOKO BUKU AL FATIH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="48" width="98" height="20" uuid="752c9e9e-a578-4153-81f5-6661f8f52adc"/>
+				<text><![CDATA[Jln. Abuya Jalur III]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="79" width="802" height="1" uuid="a2862b9e-7ce2-4a78-af27-35e7e84a80f1"/>
+			</line>
+			<staticText>
+				<reportElement x="318" y="80" width="177" height="20" uuid="9e10654a-7226-4032-8704-cac02d564eec"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Buku]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="375" y="12" width="48" height="20" uuid="c2854891-46e8-4ef8-99ac-fb644fa097fc"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="12" width="74" height="20" uuid="209fd0e7-c670-4cb8-bf9b-88b5012aff10"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No ISBN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="12" width="47" height="20" uuid="bdf285af-7cbd-460a-8ead-79e036296ef4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="729" y="12" width="63" height="20" uuid="bcc0bb94-a078-447d-820d-dcebff3d3335"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Diskon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="12" width="54" height="20" uuid="c69019fe-1231-492b-946f-9bb0ebbbab5f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Penerbit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="688" y="12" width="26" height="20" uuid="7b59283d-faf0-485d-8ea9-b5a74319bbac"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PPN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="609" y="12" width="63" height="20" uuid="98347b8b-2ff7-4ce6-b4d6-f8855a161d22"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga Jual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="12" width="57" height="20" uuid="1f10d659-2896-4ebe-b346-c711efd638d2"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Penulis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="100" height="20" uuid="56d8bbd7-5e97-475f-b640-cb055f5a7abe"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Judul]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="516" y="12" width="72" height="20" uuid="0aa5a5d0-917b-46c1-abb5-f5c0122d7224"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga Pokok]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-1" y="0" width="802" height="1" uuid="bdf8955d-2215-405d-92ad-dc6e7be6f25c"/>
+			</line>
+			<line>
+				<reportElement x="2" y="51" width="802" height="1" uuid="745c3cf3-034c-4060-84bd-92455b694668"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="802" height="1" uuid="091d9597-9b28-420f-94aa-e55cc5f2c3e2"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="100" height="20" uuid="fb663ebb-0fef-4c00-a60a-32ca8f834324"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_judul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="14" width="74" height="20" uuid="164dfd92-dcc1-4422-b136-9f3a50ee9a91"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_noisbn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="14" width="57" height="20" uuid="fa4b309c-68ef-4abd-b4d5-6a76b522455b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_penulis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="14" width="54" height="20" uuid="ef3f15c2-0eea-45f8-b556-ce35c9803fbe"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_penerbit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy">
+				<reportElement x="375" y="14" width="48" height="20" uuid="df984a4d-0542-45e4-b8d2-94635716129a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_tahun}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="14" width="47" height="20" uuid="1a15403c-3acc-4d8a-865c-008516828f9f"/>
+				<textElement textAlignment="Center">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buku_stok}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement x="516" y="14" width="72" height="20" uuid="21914d19-47cd-4528-8352-8738d4fa2761"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_harga_pokok}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement x="609" y="14" width="63" height="20" uuid="2f9a4fc2-4674-4a60-bd35-e23af48010a9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_harga_jual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0 %">
+				<reportElement x="688" y="14" width="26" height="20" uuid="8b93c796-5a0d-4029-a9d7-9806c1a9013f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_ppn}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0 %">
+				<reportElement x="729" y="14" width="63" height="20" uuid="81782e2b-ccf5-446c-8aff-aa7a9f05d54e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{buku_diskon}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

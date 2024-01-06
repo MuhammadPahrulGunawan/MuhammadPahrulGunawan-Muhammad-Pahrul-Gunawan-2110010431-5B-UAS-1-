@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ad1ba57-f0ea-49de-8831-2c52082ef25f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="234"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="9985158a-daff-4566-838a-d3f8df29ea9f"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     distributor.`id` AS distributor_id,
+     distributor.`nama_distributor` AS distributor_nama_distributor,
+     distributor.`alamat` AS distributor_alamat,
+     distributor.`telepon` AS distributor_telepon
+FROM
+     `distributor` distributor]]>
+	</queryString>
+	<field name="distributor_id" class="java.lang.Integer"/>
+	<field name="distributor_nama_distributor" class="java.lang.String"/>
+	<field name="distributor_alamat" class="java.lang.String"/>
+	<field name="distributor_telepon" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="343" y="7" width="117" height="34" uuid="6df9e28b-48bc-42d3-900b-21f4c255d469"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Toko Buku]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="56" width="129" height="20" uuid="4e7b9104-00c6-4874-8877-4c5e771ad96c"/>
+				<text><![CDATA[Jln Cikeusik Cidahu No.73]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="76" width="802" height="1" uuid="7a59f029-c546-471b-98cb-889734c7a594"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="687" y="7" width="115" height="20" uuid="43ffdf30-1241-4ea9-86ad-f8fab433cac0"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="15" width="100" height="20" uuid="7acac158-29e7-405a-8244-84355629d9fb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Distributor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="15" width="100" height="20" uuid="af823f87-ce97-467b-919d-275aa60fc071"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="558" y="15" width="100" height="20" uuid="5e9fc856-7de8-4425-89b5-ce4c01422624"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telepon]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="163" y="10" width="100" height="20" uuid="dd09e0b3-f5c7-4174-abed-5e19c9f81ad7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{distributor_nama_distributor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="10" width="100" height="20" uuid="54c46701-40d3-4c82-8a61-96c9bcb97eca"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{distributor_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="558" y="10" width="100" height="20" uuid="37f11f07-9a8d-463d-b25b-3d61fd7747b5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{distributor_telepon}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

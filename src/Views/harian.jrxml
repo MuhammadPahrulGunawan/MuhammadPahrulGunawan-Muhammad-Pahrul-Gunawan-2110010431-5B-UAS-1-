@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="485f5ed9-a0f0-4071-a2bd-2c421b2e897c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     buku.`id` AS buku_id,
+     buku.`gambar` AS buku_gambar,
+     buku.`judul` AS buku_judul,
+     buku.`noisbn` AS buku_noisbn,
+     buku.`penulis` AS buku_penulis,
+     buku.`penerbit` AS buku_penerbit,
+     buku.`tahun` AS buku_tahun,
+     buku.`stok` AS buku_stok,
+     buku.`harga_pokok` AS buku_harga_pokok,
+     buku.`harga_jual` AS buku_harga_jual,
+     buku.`ppn` AS buku_ppn,
+     buku.`diskon` AS buku_diskon,
+     penjualan.`id` AS penjualan_id,
+     penjualan.`nota` AS penjualan_nota,
+     penjualan.`id_kasir` AS penjualan_id_kasir,
+     penjualan.`tanggal` AS penjualan_tanggal,
+     penjualan_detail.`id` AS penjualan_detail_id,
+     penjualan_detail.`id_penjualan` AS penjualan_detail_id_penjualan,
+     penjualan_detail.`id_buku` AS penjualan_detail_id_buku,
+     penjualan_detail.`qty` AS penjualan_detail_qty
+FROM
+     `penjualan` penjualan INNER JOIN `penjualan_detail` penjualan_detail ON penjualan.`id` = penjualan_detail.`id_penjualan`,
+     `buku` buku
+WHERE
+tanggal=CURDATE() AND penjualan.id=id_penjualan AND buku.id=id_buku]]>
+	</queryString>
+	<field name="buku_id" class="java.lang.Integer"/>
+	<field name="buku_gambar" class="java.lang.String"/>
+	<field name="buku_judul" class="java.lang.String"/>
+	<field name="buku_noisbn" class="java.lang.String"/>
+	<field name="buku_penulis" class="java.lang.String"/>
+	<field name="buku_penerbit" class="java.lang.String"/>
+	<field name="buku_tahun" class="java.sql.Date"/>
+	<field name="buku_stok" class="java.lang.Integer"/>
+	<field name="buku_harga_pokok" class="java.lang.Integer"/>
+	<field name="buku_harga_jual" class="java.lang.Integer"/>
+	<field name="buku_ppn" class="java.lang.Integer"/>
+	<field name="buku_diskon" class="java.lang.Integer"/>
+	<field name="penjualan_id" class="java.lang.Integer"/>
+	<field name="penjualan_nota" class="java.lang.String"/>
+	<field name="penjualan_id_kasir" class="java.lang.Integer"/>
+	<field name="penjualan_tanggal" class="java.sql.Date"/>
+	<field name="penjualan_detail_id" class="java.lang.Integer"/>
+	<field name="penjualan_detail_id_penjualan" class="java.lang.Integer"/>
+	<field name="penjualan_detail_id_buku" class="java.lang.Integer"/>
+	<field name="penjualan_detail_qty" class="java.lang.Integer"/>
+	<variable name="total" class="java.lang.Integer">
+		<variableExpression><![CDATA[$F{buku_harga_jual}*$F{penjualan_detail_qty}]]></variableExpression>
+	</variable>
+	<variable name="tot" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$V{total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="258" height="36" uuid="7539d19d-7e1e-4c7c-9559-4e0237f55430"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[TOKO BUKU AL FATIH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="98" height="20" uuid="f5128aef-0774-458a-9bd6-b14b76433105"/>
+				<text><![CDATA[Jln. Abuya Jalur III]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="55" width="555" height="1" uuid="09feb208-60e1-4cc1-8ce0-22d0f2fe114f"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="77" width="48" height="20" uuid="d4ec0d0c-e71e-4eaf-8eee-95df805682cf"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="76" y="77" width="100" height="20" uuid="c9d0b1d9-398d-4648-a977-2591bb97265b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="15" width="44" height="20" uuid="451ff4e3-5046-4f06-88ce-a0811f8e0bfe"/>
+				<text><![CDATA[Nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="15" width="100" height="20" uuid="a6cdf6b2-7da0-4a37-93ec-b855ceea4802"/>
+				<text><![CDATA[Judul]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="15" width="53" height="20" uuid="17c177a1-3508-4272-8ae2-f359480a6cc8"/>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="15" width="25" height="20" uuid="5fdd2560-5ac0-4204-af04-916c4985bd91"/>
+				<text><![CDATA[Qty']]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="15" width="100" height="20" uuid="ede0f800-8cf6-49d6-82b4-53837cb568ce"/>
+				<text><![CDATA[Harga Total]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="50">
+			<textField>
+				<reportElement x="16" y="15" width="48" height="20" uuid="9ccc34fa-d0e1-4464-99bc-08491e2cae73"/>
+				<textFieldExpression><![CDATA[$F{penjualan_nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="15" width="100" height="20" uuid="8d4191f4-54fd-4fb5-a704-fb9d5467dc06"/>
+				<textFieldExpression><![CDATA[$F{buku_judul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="15" width="53" height="20" uuid="9c242daf-a58a-4550-ae8e-97ccb47cadda"/>
+				<textFieldExpression><![CDATA[$F{buku_harga_jual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="15" width="25" height="20" uuid="d5bdf8a0-bdff-4dac-b246-23e5c8162197"/>
+				<textFieldExpression><![CDATA[$F{penjualan_detail_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="15" width="100" height="20" uuid="2a00e06b-ba54-446d-9d73-2c13e4388fd3"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="398" y="13" width="48" height="20" uuid="d9ee815d-29ee-4321-ad30-47dccfe88b27"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="13" width="81" height="20" uuid="21625b9e-8c08-4c42-9800-49e4a62c98a0"/>
+				<textFieldExpression><![CDATA[$V{tot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

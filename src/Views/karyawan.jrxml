@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ec9f9cb-4834-4a90-8414-3fff1c7459d7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     kasir.`id` AS kasir_id,
+     kasir.`username` AS kasir_username,
+     kasir.`password` AS kasir_password,
+     kasir.`nama` AS kasir_nama,
+     kasir.`alamat` AS kasir_alamat,
+     kasir.`hakakses` AS kasir_hakakses
+FROM
+     `kasir` kasir]]>
+	</queryString>
+	<field name="kasir_id" class="java.lang.Integer"/>
+	<field name="kasir_username" class="java.lang.String"/>
+	<field name="kasir_password" class="java.lang.String"/>
+	<field name="kasir_nama" class="java.lang.String"/>
+	<field name="kasir_alamat" class="java.lang.String"/>
+	<field name="kasir_hakakses" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="256" height="38" uuid="ec9a29db-cb88-4a04-a98a-65a71152fedf"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[TOKO BUKU AL FATIH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="88" height="20" uuid="df8c9b20-a3de-49e1-8b96-966b0e736080"/>
+				<text><![CDATA[Jln. Abuya Jalur III]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="90" width="555" height="1" uuid="3067afb4-b64d-4c9b-abfd-627a0429db60"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="22" width="79" height="20" uuid="7553aa0f-9a15-4f09-9c33-131ed84ffc35"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[USERNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="22" width="77" height="20" uuid="342f6237-ef20-40da-834a-6715e47688fe"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[PASSWORD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="22" width="132" height="20" uuid="62d6cfd8-e9b1-4121-a431-608da68d57b1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="22" width="120" height="20" uuid="5956c9dc-7f93-44ee-8978-ba071217f228"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ALAMAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="22" width="68" height="20" uuid="845a15f1-9a0e-46bc-b42c-b834d5b41122"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[HAK AKSES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1" uuid="13f9ac2a-9deb-4607-b95f-8c11f88f9edc"/>
+			</line>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="9cbbe223-b947-46a2-baa8-3fc8c8c1ca93"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="14" width="53" height="20" uuid="e2df8f6b-9e59-49cd-adab-b617c302234b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kasir_username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="14" width="132" height="20" uuid="1546b815-6b85-4ce6-a133-05002df55878"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kasir_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="14" width="120" height="20" uuid="8bc4fb65-5776-4bae-b936-0be2a391e6d6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kasir_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="14" width="49" height="20" uuid="5f9d2810-18b7-4d18-82fd-5978ccdb5978"/>
+				<textElement textAlignment="Center">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kasir_hakakses}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="14" width="49" height="20" uuid="249b0e26-5eaa-42c0-9a6f-f28a0c364b84"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kasir_password}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="158" y="-22" width="1" height="62" uuid="10b52c95-f890-4f2b-9a54-3bc64595c06d"/>
+			</line>
+			<line>
+				<reportElement x="80" y="-22" width="1" height="62" uuid="b751af9a-22f5-44b6-95c2-71c8a46c9875"/>
+			</line>
+			<line>
+				<reportElement x="314" y="-22" width="1" height="62" uuid="8efcdd31-bf67-448c-9498-bf830500c352"/>
+			</line>
+			<line>
+				<reportElement x="471" y="-22" width="1" height="62" uuid="7c9bb9b2-bd0e-4f49-9860-ee0436aadcf6"/>
+			</line>
+			<line>
+				<reportElement x="1" y="40" width="555" height="1" uuid="bf7ebef4-baae-492c-b8b0-8b743e35c1e2"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-22" width="1" height="63" uuid="838383ae-64af-437d-9b8a-3472b412e2fa"/>
+			</line>
+			<line>
+				<reportElement x="555" y="-22" width="1" height="62" uuid="47c6d366-b165-4fd8-a748-415458bb1a3c"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="1" y="25" width="100" height="20" uuid="e9dc9914-d504-4af3-a5de-e7f47e2fc708"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

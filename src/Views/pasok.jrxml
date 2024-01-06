@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb47ae7d-fc41-4517-91a9-05b434dd2032">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pasok.`id` AS pasok_id,
+     pasok.`id_distributor` AS pasok_id_distributor,
+     pasok.`id_buku` AS pasok_id_buku,
+     pasok.`jumlah` AS pasok_jumlah,
+     pasok.`tanggal` AS pasok_tanggal,
+     buku.`id` AS buku_id,
+     buku.`gambar` AS buku_gambar,
+     buku.`judul` AS buku_judul,
+     buku.`noisbn` AS buku_noisbn,
+     buku.`penulis` AS buku_penulis,
+     buku.`penerbit` AS buku_penerbit,
+     buku.`tahun` AS buku_tahun,
+     buku.`stok` AS buku_stok,
+     buku.`harga_pokok` AS buku_harga_pokok,
+     buku.`harga_jual` AS buku_harga_jual,
+     buku.`ppn` AS buku_ppn,
+     buku.`diskon` AS buku_diskon,
+     distributor.`id` AS distributor_id,
+     distributor.`nama_distributor` AS distributor_nama_distributor,
+     distributor.`alamat` AS distributor_alamat,
+     distributor.`telepon` AS distributor_telepon
+FROM
+     `buku` buku INNER JOIN `pasok` pasok ON buku.`id` = pasok.`id_buku`
+     INNER JOIN `distributor` distributor ON pasok.`id_distributor` = distributor.`id`]]>
+	</queryString>
+	<field name="pasok_id" class="java.lang.Integer"/>
+	<field name="pasok_id_distributor" class="java.lang.Integer"/>
+	<field name="pasok_id_buku" class="java.lang.Integer"/>
+	<field name="pasok_jumlah" class="java.lang.Integer"/>
+	<field name="pasok_tanggal" class="java.sql.Date"/>
+	<field name="buku_id" class="java.lang.Integer"/>
+	<field name="buku_gambar" class="java.lang.String"/>
+	<field name="buku_judul" class="java.lang.String"/>
+	<field name="buku_noisbn" class="java.lang.String"/>
+	<field name="buku_penulis" class="java.lang.String"/>
+	<field name="buku_penerbit" class="java.lang.String"/>
+	<field name="buku_tahun" class="java.sql.Date"/>
+	<field name="buku_stok" class="java.lang.Integer"/>
+	<field name="buku_harga_pokok" class="java.lang.Integer"/>
+	<field name="buku_harga_jual" class="java.lang.Integer"/>
+	<field name="buku_ppn" class="java.lang.Integer"/>
+	<field name="buku_diskon" class="java.lang.Integer"/>
+	<field name="distributor_id" class="java.lang.Integer"/>
+	<field name="distributor_nama_distributor" class="java.lang.String"/>
+	<field name="distributor_alamat" class="java.lang.String"/>
+	<field name="distributor_telepon" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="256" height="35" uuid="ad5ead5b-def6-4462-9311-dafdb9f41bcf"/>
+				<textElement>
+					<font size="24" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TOKO BUKU AL FATIH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="46" width="122" height="20" uuid="87b828b0-33f3-4515-897c-e455078764e7"/>
+				<text><![CDATA[Jln. Abuya Jalur III]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="79" width="555" height="1" uuid="dc5336eb-390f-41b2-bc63-12fee7e44138"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="18" width="116" height="20" uuid="9e60fd19-8fb7-40bc-b13d-fbbdfaa32486"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA DISTRIBUTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="18" width="100" height="20" uuid="e6b1eefc-256c-46e7-8c7e-8bce937d535e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUDUL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="18" width="100" height="20" uuid="2e042c30-f3c9-4035-81c2-a45821386893"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="18" width="100" height="20" uuid="da24eee8-4d27-4aa9-ba04-6eca3281a8c6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="17" width="116" height="20" uuid="058a5e1f-27f9-4aab-bdde-b9faf240851d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{distributor_nama_distributor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="17" width="100" height="42" uuid="6e3c3a00-d835-4502-aa82-b2f250acdcf5"/>
+				<textElement textAlignment="Center">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buku_judul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="17" width="100" height="20" uuid="3aa3e8d0-2745-4ce5-abec-8f9804f296e3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{pasok_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="17" width="100" height="20" uuid="7359b3fe-b6c2-4c2e-ab68-8cabb78bd3c7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{pasok_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
